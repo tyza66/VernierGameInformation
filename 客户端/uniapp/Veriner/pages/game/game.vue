@@ -19,9 +19,12 @@
 					</div>
 					<div class="card-footer">
 						<span class="text-title">{{item.price}}</span>
+						<span class="discount"><p>{{item.discount}}</p></span>
+						<span class="platform"><p>{{item.platform}}</p></span>
+						<span class="classification"><p>{{item.classification}}</p></span>
 						<button class="mini-btn card-button" type="default" size="mini"
 							@click="openAppStore(item.package,item.appleid)">
-							<image src="../../static/ui/buy.png"></image>
+							<image src="../../static/ui/goto.png"></image>
 						</button>
 					</div>
 				</div>
@@ -264,6 +267,9 @@
 		margin-right: 0;
 		margin-top: 15rpx;
 		background-color: #ffcaa6;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.card-button image {
@@ -280,5 +286,79 @@
 	.card-button:hover {
 		border: 1px solid #7257fa;
 		background-color: #7257fa;
+	}
+	
+	.discount{
+		height: 50rpx;
+		background: rgba(0, 255, 0, 0.3);
+		border-radius: 25rpx;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-left: 10px;
+		padding: 0 10rpx;
+	}
+	
+	.discount p{
+		color: green;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.platform{
+		height: 50rpx;
+		background: rgba(0, 85, 255, 0.3);
+		border-radius: 25rpx;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-left: 10px;
+		padding: 0 10rpx;
+	}
+	
+	.platform p{
+		color: green;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.platform{
+		height: 50rpx;
+		background: rgba(0, 85, 255, 0.3);
+		border-radius: 25rpx;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-left: 10px;
+		padding: 0 15rpx;
+	}
+	
+	.platform p{
+		color: black;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	.classification{
+		height: 50rpx;
+		background: rgba(0, 85, 255, 0.3);
+		border-radius: 25rpx;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-left: 10px;
+		padding: 0 15rpx;
+	}
+	
+	.classification p{
+		color: black;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 </style>

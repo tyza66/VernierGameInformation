@@ -10,7 +10,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/VernierGameInformation$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1675338673262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/后端/v0.01/main" />
+    <SUITE FILE_PATH="coverage/VernierGameInformation$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1675385691649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/后端/v0.01/main" />
     <SUITE FILE_PATH="coverage/VernierGameInformation$main.coverage" NAME="main Coverage Results" MODIFIED="1675304998051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/后端/v0.01" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
@@ -30,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/后端/v0.01/main/sql.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+              <caret line="37" column="41" lean-forward="false" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
               <folding>
                 <marker date="1675338670846" expanded="true" signature="784:832" ph="SELECT * FRO... gamelist" />
                 <marker date="1675338670846" expanded="true" signature="1267:1337" ph="SELECT * FRO... preferential" />
@@ -463,7 +463,7 @@
     <entry file="file://$PROJECT_DIR$/后端/v0.01/main/sql.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+          <caret line="37" column="41" lean-forward="false" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
           <folding>
             <marker date="1675338670846" expanded="true" signature="784:832" ph="SELECT * FRO... gamelist" />
             <marker date="1675338670846" expanded="true" signature="1267:1337" ph="SELECT * FRO... preferential" />
