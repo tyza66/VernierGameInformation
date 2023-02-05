@@ -7,8 +7,9 @@
 				<span class="bar"></span>
 				<span class="bar"></span>
 			</div>
-			<input placeholder="在此使用关键词搜素" type="text" class="input" required="">
-			<view v-for="(item,i) in preferential" key="i">
+			<input placeholder="在此使用关键词搜素" type="text" class="input" required="" v-model="keyword"
+				@input="searchKey(keyword)">
+			<view v-for="(item,i) in preferential" :key="i">
 				<div class="card">
 					<h3 class="card__title" @click="openUrl(item.url)">{{item.title}}
 					</h3>
@@ -34,7 +35,8 @@
 		data() {
 			return {
 				mainLoader: true,
-				preferential: []
+				preferential: [],
+				keyword: ''
 			}
 		},
 		onLoad() {
@@ -59,6 +61,7 @@
 			})
 		},
 		onPullDownRefresh() {
+			this.keyword = ''
 			uni.request({
 				url: backend + '/preferential',
 				header: {
@@ -80,30 +83,93 @@
 			uni.stopPullDownRefresh();
 		},
 		onReachBottom() {
-			uni.request({
-				url: backend + '/preferential',
-				header: {
-					'custom-type': 'application/json'
-				},
-				success: (res) => {
-					this.preferential = this.preferential.concat(res.data)
-					this.mainLoader = false
-					console.log(res.data)
-				},
-				fail: (res) => {
-					uni.showToast({
-						icon: 'error',
-						title: '网络连接失败',
-						duration: 2000
-					});
-				}
-			})
+			if (this.keyword == '') {
+				uni.request({
+					url: backend + '/preferential',
+					header: {
+						'custom-type': 'application/json'
+					},
+					success: (res) => {
+						this.preferential = this.preferential.concat(res.data)
+						this.mainLoader = false
+						console.log(res.data)
+					},
+					fail: (res) => {
+						uni.showToast({
+							icon: 'error',
+							title: '网络连接失败',
+							duration: 2000
+						});
+					}
+				})
+			} else {
+				uni.request({
+					url: backend + '/limitPreferential?key=' + this.keyword,
+					header: {
+						'custom-type': 'application/json'
+					},
+					success: (res) => {
+						this.preferential = this.preferential.concat(res.data)
+						this.mainLoader = false
+						console.log(res.data)
+					},
+					fail: (res) => {
+						uni.showToast({
+							icon: 'error',
+							title: '网络连接失败',
+							duration: 2000
+						});
+					}
+				})
+			}
 		},
 		methods: {
 			openUrl(url) {
 				plus.runtime.openURL(url, function(res) {
 					console.log(res);
 				});
+			},
+			searchKey(key) {
+				this.preferential = []
+				if (this.keyword == '') {
+					uni.request({
+						url: backend + '/preferential',
+						header: {
+							'custom-type': 'application/json'
+						},
+						success: (res) => {
+							this.preferential = this.preferential.concat(res.data)
+							this.mainLoader = false
+							console.log(res.data)
+						},
+						fail: (res) => {
+							uni.showToast({
+								icon: 'error',
+								title: '网络连接失败',
+								duration: 2000
+							});
+						}
+					})
+				} else {
+					uni.request({
+						url: backend + '/limitPreferential?key=' + this.keyword,
+						header: {
+							'custom-type': 'application/json'
+						},
+						success: (res) => {
+							this.preferential = this.preferential.concat(res.data)
+							this.mainLoader = false
+							console.log(res.data)
+						},
+						fail: (res) => {
+							uni.showToast({
+								icon: 'error',
+								title: '网络连接失败',
+								duration: 2000
+							});
+						}
+					})
+				}
 			}
 		}
 	}

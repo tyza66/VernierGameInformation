@@ -7,7 +7,8 @@
 				<span class="bar"></span>
 				<span class="bar"></span>
 			</div>
-			<input placeholder="在此使用关键词搜素" type="text" class="input" required="">
+			<input placeholder="在此使用关键词搜素" type="text" class="input" required="" v-model="keyword"
+				@input="searchKey(keyword)">
 			<view v-for="(item,i) in gamelist" :key="i">
 				<div class="card">
 					<div class="card-img">
@@ -19,12 +20,19 @@
 					</div>
 					<div class="card-footer">
 						<span class="text-title">{{item.price}}</span>
-						<span class="discount"><p>{{item.discount}}</p></span>
-						<span class="platform"><p>{{item.platform}}</p></span>
-						<span class="classification"><p>{{item.classification}}</p></span>
+						<span class="discount">
+							<p>{{item.discount}}</p>
+						</span>
+						<span class="platform">
+							<p>{{item.platform}}</p>
+						</span>
+						<span class="classification">
+							<p>{{item.classification}}</p>
+						</span>
 						<button class="mini-btn card-button" type="default" size="mini"
 							@click="openAppStore(item.package,item.appleid)">
-							<image src="../../static/ui/goto.png"></image>
+							<!--<image src="../../static/ui/goto.png"></image>-->
+							<p>查看</p>
 						</button>
 					</div>
 				</div>
@@ -41,31 +49,36 @@
 		data() {
 			return {
 				mainLoader: true,
-				gamelist: []
+				gamelist: [],
+				keyword: ''
 			}
 		},
 		onLoad() {
 			console.log(backend)
-			uni.request({
-				url: backend + '/gamelist',
-				header: {
-					'custom-type': 'application/json'
-				},
-				success: (res) => {
-					this.gamelist = res.data
-					this.mainLoader = false
-					//console.log(res.data)
-				},
-				fail: (res) => {
-					uni.showToast({
-						icon: 'error',
-						title: '网络连接失败',
-						duration: 2000
-					});
-				}
-			})
+			if (this.keyword == '') {
+				uni.request({
+					url: backend + '/gamelist',
+					header: {
+						'custom-type': 'application/json'
+					},
+					success: (res) => {
+						this.gamelist = res.data
+						this.mainLoader = false
+						//console.log(res.data)
+					},
+					fail: (res) => {
+						uni.showToast({
+							icon: 'error',
+							title: '网络连接失败',
+							duration: 2000
+						});
+					}
+				})
+			}
+
 		},
 		onPullDownRefresh() {
+			this.keyword = ''
 			uni.request({
 				url: backend + '/gamelist',
 				header: {
@@ -87,24 +100,45 @@
 			uni.stopPullDownRefresh();
 		},
 		onReachBottom() {
-			uni.request({
-				url: backend + '/gamelist',
-				header: {
-					'custom-type': 'application/json'
-				},
-				success: (res) => {
-					this.gamelist = this.gamelist.concat(res.data)
-					this.mainLoader = false
-					//console.log(res.data)
-				},
-				fail: (res) => {
-					uni.showToast({
-						icon: 'error',
-						title: '网络连接失败',
-						duration: 2000
-					});
-				}
-			})
+			if (this.keyword == '') {
+				uni.request({
+					url: backend + '/gamelist',
+					header: {
+						'custom-type': 'application/json'
+					},
+					success: (res) => {
+						this.gamelist = this.gamelist.concat(res.data)
+						this.mainLoader = false
+						//console.log(res.data)
+					},
+					fail: (res) => {
+						uni.showToast({
+							icon: 'error',
+							title: '网络连接失败',
+							duration: 2000
+						});
+					}
+				})
+			} else {
+				uni.request({
+					url: backend + '/limitGameList?key='+this.keyword,
+					header: {
+						'custom-type': 'application/json'
+					},
+					success: (res) => {
+						this.gamelist = this.gamelist.concat(res.data)
+						this.mainLoader = false
+						//console.log(res.data)
+					},
+					fail: (res) => {
+						uni.showToast({
+							icon: 'error',
+							title: '网络连接失败',
+							duration: 2000
+						});
+					}
+				})
+			}
 		},
 		methods: {
 			openAppStore(packagename, appleid) {
@@ -117,6 +151,49 @@
 					let appleId = 纯数字id
 					plus.runtime.launchApplication({
 						action: `itms-apps://itunes.apple.com/cn/app/id` + appleid,
+					})
+				}
+			},
+			searchKey(key) {
+				this.gamelist = []
+				//console.log(key)
+				if (this.keyword == '') {
+					uni.request({
+						url: backend + '/gamelist',
+						header: {
+							'custom-type': 'application/json'
+						},
+						success: (res) => {
+							this.gamelist = this.gamelist.concat(res.data)
+							this.mainLoader = false
+							//console.log(res.data)
+						},
+						fail: (res) => {
+							uni.showToast({
+								icon: 'error',
+								title: '网络连接失败',
+								duration: 2000
+							});
+						}
+					})
+				} else {
+					uni.request({
+						url: backend + '/limitGameList?key='+this.keyword,
+						header: {
+							'custom-type': 'application/json'
+						},
+						success: (res) => {
+							this.gamelist = this.gamelist.concat(res.data)
+							this.mainLoader = false
+							console.log(res.data)
+						},
+						fail: (res) => {
+							uni.showToast({
+								icon: 'error',
+								title: '网络连接失败',
+								duration: 2000
+							});
+						}
 					})
 				}
 			}
@@ -265,7 +342,6 @@
 		border-radius: 50px;
 		transition: .3s ease-in-out;
 		margin-right: 0;
-		margin-top: 15rpx;
 		background-color: #ffcaa6;
 		display: flex;
 		justify-content: center;
@@ -275,6 +351,10 @@
 	.card-button image {
 		width: 60rpx;
 		height: 60rpx;
+	}
+	
+	.card-button p{
+		text-align: center;
 	}
 
 	/*Hover*/
@@ -287,8 +367,8 @@
 		border: 1px solid #7257fa;
 		background-color: #7257fa;
 	}
-	
-	.discount{
+
+	.discount {
 		height: 50rpx;
 		background: rgba(0, 255, 0, 0.3);
 		border-radius: 25rpx;
@@ -298,15 +378,16 @@
 		margin-left: 10px;
 		padding: 0 10rpx;
 	}
-	
-	.discount p{
+
+	.discount p {
 		color: green;
 		text-align: center;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
-	.platform{
+
+	.platform {
 		height: 50rpx;
 		background: rgba(0, 85, 255, 0.3);
 		border-radius: 25rpx;
@@ -316,15 +397,16 @@
 		margin-left: 10px;
 		padding: 0 10rpx;
 	}
-	
-	.platform p{
+
+	.platform p {
 		color: green;
 		text-align: center;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
-	.platform{
+
+	.platform {
 		height: 50rpx;
 		background: rgba(0, 85, 255, 0.3);
 		border-radius: 25rpx;
@@ -334,16 +416,16 @@
 		margin-left: 10px;
 		padding: 0 15rpx;
 	}
-	
-	.platform p{
+
+	.platform p {
 		color: black;
 		text-align: center;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
-	
-	.classification{
+
+	.classification {
 		height: 50rpx;
 		background: rgba(0, 85, 255, 0.3);
 		border-radius: 25rpx;
@@ -353,8 +435,8 @@
 		margin-left: 10px;
 		padding: 0 15rpx;
 	}
-	
-	.classification p{
+
+	.classification p {
 		color: black;
 		text-align: center;
 		display: flex;

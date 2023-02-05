@@ -43,6 +43,30 @@ class MysqlManager:
             print('重新数据库连接成功(getGameList)')
             return self.getGameList()
 
+    # 获取游戏列表-搜索随机10个
+    def getLimitGameList(self, key):
+        limit = "(package LIKE '%" + key + "%' OR " \
+                                           "name LIKE '%" + key + "%' OR " \
+                                                                  "introduction LIKE '%" + key + "%' OR " \
+                                                                                                 "type LIKE '%" + key + "%' OR " \
+                                                                                                                        "url LIKE '%" + key + "%' OR " \
+                                                                                                                                              "classification LIKE '%" + key + "%' OR " \
+                                                                                                                                                                               "image LIKE '%" + key + "%' OR " \
+                                                                                                                                                                                                       "price LIKE '%" + key + "%' OR " \
+                                                                                                                                                                                                                               "appleid LIKE '%" + key + "%' OR " \
+                                                                                                                                                                                                                                                         "discount LIKE '%" + key + "%' OR " \
+                                                                                                                                                                                                                                                                                    "platform LIKE '%" + key + "%' OR " \
+                                                                                                                                                                                                                                                                                                               "original LIKE '%" + key + "%') "
+        try:
+            self.cursor.execute("SELECT * FROM gamelist WHERE" + limit + " ORDER BY  RAND() LIMIT 10")
+            return self.cursor.fetchall()
+        except Exception as e:
+            print("获取失败(getLimitGameList)", str(e))
+            self.conn = pymysql.Connect(**self.config)
+            self.cursor = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            print('重新数据库连接成功(getLimitGameList)')
+            return self.getLimitGameList(key)
+
     # 获取福利列表-随机10个
     def getPreferential(self):
         try:
@@ -54,3 +78,21 @@ class MysqlManager:
             self.cursor = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             print('重新数据库连接成功(getPreferential)')
             return self.getPreferential()
+
+    # 获取福利列表-搜索随机10个
+    def getLimitPreferential(self, key):
+        limit = "((title LIKE '%" + key + "%' OR " \
+                                          "introduction LIKE '%" + key + "%' OR " \
+                                                                         "url LIKE '%" + key + "%' OR " \
+                                                                                               "date LIKE binary '%" + key + "%') AND " \
+                                                                                                                             "statu = 0) "
+
+        try:
+            self.cursor.execute("SELECT * FROM preferential WHERE" + limit + "ORDER BY  RAND() LIMIT 10")
+            return self.cursor.fetchall()
+        except Exception as e:
+            print("获取失败(getLimitPreferential)", str(e))
+            self.conn = pymysql.Connect(**self.config)
+            self.cursor = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            print('重新数据库连接成功(getLimitPreferential)')
+            return self.getLimitPreferential(key)

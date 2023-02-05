@@ -23,6 +23,15 @@
 			}
 		}, 
 		{
+			"path": "pages/game/gameInformation/gameInformation",
+			"style": {
+				"navigationBarTitleText": "",
+				"app-plus": {
+					"scrollIndicator": "none"
+				}
+			}
+		},
+		{
 			"path": "pages/preferential/preferential",
 			"style": {
 				"navigationBarTitleText": "",
@@ -47,16 +56,17 @@
 	},
 	"tabBar": {
 		"selectedColor": "#000000",
-		"list": [{
-				"text": "首页",
-				"pagePath": "pages/index/index",
-				"iconPath": ""
-			},
+		"list": [
 			{
 				"text": "游戏",
 				"pagePath": "pages/game/game",
 				"iconPath": ""
 			},
+			{
+					"text": "首页",
+					"pagePath": "pages/index/index",
+					"iconPath": ""
+				},
 			{
 				"text": "福利",
 				"pagePath": "pages/preferential/preferential",

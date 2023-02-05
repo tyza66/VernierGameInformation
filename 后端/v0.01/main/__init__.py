@@ -27,9 +27,23 @@ def gameList():
     return jsonify(result)
 
 
+@app.route("/limitGameList", methods=["GET"])
+def limitGameList():
+    key = request.args.get("key", "")
+    result = mysqlManager.getLimitGameList(key)
+    return jsonify(result)
+
+
 @app.route("/preferential", methods=["GET"])
-def Preferential():
+def preferential():
     result = mysqlManager.getPreferential()
+    return jsonify(result)
+
+
+@app.route("/limitPreferential", methods=["GET"])
+def limitPreferential():
+    key = request.args.get("key", "")
+    result = mysqlManager.getLimitPreferential(key)
     return jsonify(result)
 
 
