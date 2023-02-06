@@ -75,7 +75,6 @@
 					}
 				})
 			}
-
 		},
 		onPullDownRefresh() {
 			this.keyword = ''

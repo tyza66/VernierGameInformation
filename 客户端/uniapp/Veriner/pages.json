@@ -58,7 +58,7 @@
 		"selectedColor": "#000000",
 		"list": [
 			{
-				"text": "游戏",
+				"text": "优惠",
 				"pagePath": "pages/game/game",
 				"iconPath": ""
 			},
@@ -68,7 +68,7 @@
 					"iconPath": ""
 				},
 			{
-				"text": "福利",
+				"text": "福利码",
 				"pagePath": "pages/preferential/preferential",
 				"iconPath": ""
 			}

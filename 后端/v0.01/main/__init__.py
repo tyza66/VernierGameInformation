@@ -46,6 +46,11 @@ def limitPreferential():
     result = mysqlManager.getLimitPreferential(key)
     return jsonify(result)
 
+@app.route("/latestNotice", methods=["GET"])
+def latestNotice():
+    result = mysqlManager.getLatestNotice()
+    return jsonify(result)
+
 
 def run():
     server = pywsgi.WSGIServer(('0.0.0.0', 5001), app)

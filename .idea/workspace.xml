@@ -10,7 +10,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/VernierGameInformation$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1675592534718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/后端/v0.01/main" />
+    <SUITE FILE_PATH="coverage/VernierGameInformation$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1675646408423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/后端/v0.01/main" />
     <SUITE FILE_PATH="coverage/VernierGameInformation$main.coverage" NAME="main Coverage Results" MODIFIED="1675304998051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/后端/v0.01" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
@@ -19,8 +19,8 @@
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/后端/v0.01/main/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="520">
+              <caret line="48" column="44" lean-forward="true" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -31,14 +31,15 @@
       <file leaf-file-name="sql.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/后端/v0.01/main/sql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+            <state relative-caret-position="547">
+              <caret line="109" column="41" lean-forward="true" selection-start-line="109" selection-start-column="41" selection-end-line="109" selection-end-column="41" />
               <folding>
-                <marker date="1675594010650" expanded="true" signature="784:832" ph="SELECT * FRO... gamelist" />
-                <marker date="1675594010650" expanded="true" signature="3626:3654" ph="SELECT * FRO... gamelist" />
-                <marker date="1675594010650" expanded="true" signature="3626:3693" ph="SELECT * FRO... gamelist" />
-                <marker date="1675594010650" expanded="true" signature="4146:4216" ph="SELECT * FRO... preferential" />
-                <marker date="1675594010650" expanded="true" signature="5196:5266" ph="SELECT * FRO... preferential" />
+                <marker date="1675596881881" expanded="true" signature="784:832" ph="SELECT * FRO... gamelist" />
+                <marker date="1675596881881" expanded="true" signature="3626:3654" ph="SELECT * FRO... gamelist" />
+                <marker date="1675596881881" expanded="true" signature="3626:3693" ph="SELECT * FRO... gamelist" />
+                <marker date="1675596881881" expanded="true" signature="4146:4216" ph="SELECT * FRO... preferential" />
+                <marker date="1675596881881" expanded="true" signature="5196:5266" ph="SELECT * FRO... preferential" />
+                <marker date="1675596881881" expanded="true" signature="5727:5765" ph="SELECT * FRO... notice" />
               </folding>
             </state>
           </provider>
@@ -63,8 +64,8 @@
         <option value="$PROJECT_DIR$/后端/v0.01/main.py" />
         <option value="$PROJECT_DIR$/后端/v0.01/__init__.py" />
         <option value="$PROJECT_DIR$/后端/__init__.py" />
-        <option value="$PROJECT_DIR$/后端/v0.01/main/__init__.py" />
         <option value="$PROJECT_DIR$/后端/v0.01/main/sql.py" />
+        <option value="$PROJECT_DIR$/后端/v0.01/main/__init__.py" />
       </list>
     </option>
   </component>
@@ -368,7 +369,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1358" y="-600" width="1366" height="1178" extended-state="1" />
+    <frame x="-1358" y="-600" width="1366" height="1178" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -460,22 +461,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/后端/v0.01/main/sql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+        <state relative-caret-position="547">
+          <caret line="109" column="41" lean-forward="true" selection-start-line="109" selection-start-column="41" selection-end-line="109" selection-end-column="41" />
           <folding>
-            <marker date="1675594010650" expanded="true" signature="784:832" ph="SELECT * FRO... gamelist" />
-            <marker date="1675594010650" expanded="true" signature="3626:3654" ph="SELECT * FRO... gamelist" />
-            <marker date="1675594010650" expanded="true" signature="3626:3693" ph="SELECT * FRO... gamelist" />
-            <marker date="1675594010650" expanded="true" signature="4146:4216" ph="SELECT * FRO... preferential" />
-            <marker date="1675594010650" expanded="true" signature="5196:5266" ph="SELECT * FRO... preferential" />
+            <marker date="1675596881881" expanded="true" signature="784:832" ph="SELECT * FRO... gamelist" />
+            <marker date="1675596881881" expanded="true" signature="3626:3654" ph="SELECT * FRO... gamelist" />
+            <marker date="1675596881881" expanded="true" signature="3626:3693" ph="SELECT * FRO... gamelist" />
+            <marker date="1675596881881" expanded="true" signature="4146:4216" ph="SELECT * FRO... preferential" />
+            <marker date="1675596881881" expanded="true" signature="5196:5266" ph="SELECT * FRO... preferential" />
+            <marker date="1675596881881" expanded="true" signature="5727:5765" ph="SELECT * FRO... notice" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/后端/v0.01/main/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="520">
+          <caret line="48" column="44" lean-forward="true" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

@@ -96,3 +96,16 @@ class MysqlManager:
             self.cursor = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             print('重新数据库连接成功(getLimitPreferential)')
             return self.getLimitPreferential(key)
+
+    #获取最新一条的公告
+    def getLatestNotice(self):
+        try:
+            self.cursor.execute("SELECT * FROM notice  ORDER BY id DESC")
+            return self.cursor.fetchall()[0]
+        except Exception as e:
+            print("获取失败(getLatestNotice)", str(e))
+            self.conn = pymysql.Connect(**self.config)
+            self.cursor = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            print('重新数据库连接成功(getLatestNotice)')
+            return self.getLatestNotice()
+
